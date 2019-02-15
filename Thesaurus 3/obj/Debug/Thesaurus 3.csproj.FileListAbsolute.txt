@@ -1,0 +1,18 @@
+U:\Coding Practice\Thesaurus 3\Thesaurus 3\Thesaurus 3\bin\Debug\Thesaurus 3.exe.config
+U:\Coding Practice\Thesaurus 3\Thesaurus 3\Thesaurus 3\bin\Debug\Thesaurus 3.exe
+U:\Coding Practice\Thesaurus 3\Thesaurus 3\Thesaurus 3\bin\Debug\Thesaurus 3.pdb
+U:\Coding Practice\Thesaurus 3\Thesaurus 3\Thesaurus 3\obj\Debug\Thesaurus 3.csprojResolveAssemblyReference.cache
+U:\Coding Practice\Thesaurus 3\Thesaurus 3\Thesaurus 3\obj\Debug\Thesaurus 3.exe
+U:\Coding Practice\Thesaurus 3\Thesaurus 3\Thesaurus 3\obj\Debug\Thesaurus 3.pdb
+U:\Coding Practice\Thesaurus 3\Thesaurus 3\Thesaurus 3\bin\Debug\Newtonsoft.Json.dll
+U:\Coding Practice\Thesaurus 3\Thesaurus 3\Thesaurus 3\bin\Debug\Newtonsoft.Json.pdb
+U:\Coding Practice\Thesaurus 3\Thesaurus 3\Thesaurus 3\bin\Debug\Newtonsoft.Json.xml
+U:\DND\Thesaurusizer\Thesaurus 3\bin\Debug\Thesaurus 3.exe.config
+U:\DND\Thesaurusizer\Thesaurus 3\obj\Debug\Thesaurus 3.exe
+U:\DND\Thesaurusizer\Thesaurus 3\obj\Debug\Thesaurus 3.pdb
+U:\DND\Thesaurusizer\Thesaurus 3\bin\Debug\Thesaurus 3.exe
+U:\DND\Thesaurusizer\Thesaurus 3\bin\Debug\Thesaurus 3.pdb
+U:\DND\Thesaurusizer\Thesaurus 3\bin\Debug\Newtonsoft.Json.dll
+U:\DND\Thesaurusizer\Thesaurus 3\bin\Debug\Newtonsoft.Json.pdb
+U:\DND\Thesaurusizer\Thesaurus 3\bin\Debug\Newtonsoft.Json.xml
+U:\DND\Thesaurusizer\Thesaurus 3\obj\Debug\Thesaurus 3.csprojResolveAssemblyReference.cache
