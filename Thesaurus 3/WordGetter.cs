@@ -11,9 +11,6 @@ using WordHolders;
 
 public class WordGetter
 {
-
-
-
     public WordGetter(string ThesaurusWord, out string wordout, out List<string> listout)
     {
         wordout = ThesaurusWord;
@@ -25,7 +22,7 @@ public class WordGetter
 
         WebRequest request = WebRequest.Create(url + apikey + "/" + ThesaurusWord + "/" + responsetype);
 
-        JObject jdocs = new JObject();
+        //JObject jdocs = new JObject();
 
         RootObject rowords = new RootObject();
 
@@ -42,7 +39,7 @@ public class WordGetter
 
             rowords = JsonConvert.DeserializeObject<RootObject>(responseString);
 
-            jdocs = JObject.Parse(responseString);
+            //jdocs = JObject.Parse(responseString);
 
 
             response.Close();
