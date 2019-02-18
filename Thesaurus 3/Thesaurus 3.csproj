@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WordHolders.cs" />
     <Compile Include="WordRandomizer.cs" />
     <Compile Include="WordGetter.cs" />
     <Compile Include="Program.cs" />

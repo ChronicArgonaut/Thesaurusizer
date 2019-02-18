@@ -5,15 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using System.Configuration;
+using WordHolders;
 
 public class WordGetter
 {
 
-    
 
-    public WordGetter(string ThesaurusWord, out string wordout,out List<string> listout)
-	{
+
+    public WordGetter(string ThesaurusWord, out string wordout, out List<string> listout)
+    {
         wordout = ThesaurusWord;
 
 
@@ -25,6 +27,10 @@ public class WordGetter
 
         JObject jdocs = new JObject();
 
+        RootObject rowords = new RootObject();
+
+
+
         try
         {
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -34,9 +40,11 @@ public class WordGetter
             StreamReader reader = new StreamReader(stream, Encoding.UTF8);
             string responseString = reader.ReadToEnd();
 
+            rowords = JsonConvert.DeserializeObject<RootObject>(responseString);
+
             jdocs = JObject.Parse(responseString);
 
-            
+
             response.Close();
             stream.Close();
 
@@ -49,10 +57,13 @@ public class WordGetter
 
         var nounlist = new List<string>();
 
+        //Console.WriteLine(rowords.noun.syn[0]);
+
         try
         {
-            JArray jdocnoun = (JArray)jdocs["noun"]["syn"];
-            nounlist = jdocnoun.ToObject<List<string>>();
+            //JArray jdocnoun = (JArray)jdocs["noun"]["syn"];
+            //nounlist = jdocnoun.ToObject<List<string>>();
+            nounlist = nounlist = rowords.noun.syn;
             wordlist = wordlist.Concat(nounlist).ToList();
         }
         catch (NullReferenceException)
@@ -65,8 +76,9 @@ public class WordGetter
 
         try
         {
-            JArray jdocverb = (JArray)jdocs["verb"]["syn"];
-            verblist = jdocverb.ToObject<List<string>>();
+            //JArray jdocverb = (JArray)jdocs["verb"]["syn"];
+            //verblist = jdocverb.ToObject<List<string>>();
+            verblist = rowords.verb.syn;
             wordlist = wordlist.Concat(verblist).ToList();
         }
         catch (NullReferenceException)
@@ -78,22 +90,24 @@ public class WordGetter
 
         try
         {
-            JArray jdocadverb = (JArray)jdocs["adverb"]["syn"];
-            adverblist = jdocadverb.ToObject<List<string>>();
+            //JArray jdocadverb = (JArray)jdocs["adverb"]["syn"];
+            //adverblist = jdocadverb.ToObject<List<string>>();
+            adverblist = rowords.adverb.syn;
             wordlist = wordlist.Concat(adverblist).ToList();
 
         }
         catch (NullReferenceException)
         {
-           // Console.WriteLine("\nNo adverbs found!");
+            // Console.WriteLine("\nNo adverbs found!");
         }
 
         var adjectivelist = new List<string>();
 
         try
         {
-            JArray jdocadjective = (JArray)jdocs["adjective"]["syn"];
-            adjectivelist = jdocadjective.ToObject<List<string>>();
+            //JArray jdocadjective = (JArray)jdocs["adjective"]["syn"];
+            //adjectivelist = jdocadjective.ToObject<List<string>>();
+            adjectivelist = rowords.adjective.syn;
             wordlist = wordlist.Concat(adjectivelist).ToList();
 
         }
@@ -106,8 +120,9 @@ public class WordGetter
 
         try
         {
-            JArray jdocconjunction = (JArray)jdocs["conjunction"]["syn"];
-            conjunctionlist = jdocconjunction.ToObject<List<string>>();
+            //JArray jdocconjunction = (JArray)jdocs["conjunction"]["syn"];
+            //conjunctionlist = jdocconjunction.ToObject<List<string>>();
+            conjunctionlist = rowords.conjunction.syn;
             wordlist = wordlist.Concat(conjunctionlist).ToList();
 
         }
@@ -121,8 +136,9 @@ public class WordGetter
 
         try
         {
-            JArray jdocpreposition = (JArray)jdocs["preposition"]["syn"];
-            prepositionlist = jdocpreposition.ToObject<List<string>>();
+            //JArray jdocpreposition = (JArray)jdocs["preposition"]["syn"];
+            //prepositionlist = jdocpreposition.ToObject<List<string>>();
+            prepositionlist = rowords.preposition.syn;
             wordlist = wordlist.Concat(prepositionlist).ToList();
 
         }
@@ -135,10 +151,10 @@ public class WordGetter
 
         try
         {
-            JArray jdocpronoun = (JArray)jdocs["pronoun"]["syn"];
-            pronounlist = jdocpronoun.ToObject<List<string>>();
+            //JArray jdocpronoun = (JArray)jdocs["pronoun"]["syn"];
+            //pronounlist = jdocpronoun.ToObject<List<string>>();
             wordlist = wordlist.Concat(pronounlist).ToList();
-
+            pronounlist = rowords.pronoun.syn;
         }
         catch (NullReferenceException)
         {
@@ -149,10 +165,10 @@ public class WordGetter
 
         try
         {
-            JArray jdocinterjection = (JArray)jdocs["interjection"]["syn"];
-            interjectionlist = jdocinterjection.ToObject<List<string>>();
+            //JArray jdocinterjection = (JArray)jdocs["interjection"]["syn"];
+            //interjectionlist = jdocinterjection.ToObject<List<string>>();
             wordlist = wordlist.Concat(interjectionlist).ToList();
-
+            interjectionlist = rowords.interjection.syn;
         }
         catch (NullReferenceException)
         {
